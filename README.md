@@ -17,6 +17,7 @@ This project explain the Hbase installation and details
       ```
       hbase shell
       ```
+    * Hmaster Web UI : http://localhost:16010/master-status  
       
 * Following the simple way to check the Hbase table creation & table operations :
   * https://ashwani-singh-nitk.medium.com/hbase-installation-on-mac-505b90dd1635
