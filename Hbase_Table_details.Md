@@ -1,6 +1,9 @@
 # Details of Hbase table structure
 * Table is  like below :
   * Table is part of namespace , like we have database in SQL (https://stackoverflow.com/questions/45984860/what-is-more-efficient-in-performance-of-hbase-multiple-tables-of-same-structure)
+    *  ```
+       Once a namespace is created and a table is added to it, the path on HDFS will look like the following
+       <ROOT PATH>/data/<NAMESPACE NAME>/<TABLE NAME>```
     * Row -> Row_Key 
       * Row -> Column Family -> Column
       * You can access row using row_key, which is like a primary key
