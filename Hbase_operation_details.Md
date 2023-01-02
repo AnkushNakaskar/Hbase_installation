@@ -22,6 +22,8 @@
     * Performance tuning :
       * https://www.vskills.in/certification/tutorial/configuring-and-deploying/
       * http://hadoop-hbase.blogspot.com/2012/09/hbase-client-timeouts.html
+    * Some Deep insides :
+      * https://stackoverflow.com/questions/61856190/why-hbase-rows-are-said-to-be-stored-as-lexicographically-sorted
     * checkAndPut() call: 
       * only update if another value is not already present. This is achieved by setting the value parameter to null. In that case, the operation would succeed when the specified column is nonexistent
       * 
