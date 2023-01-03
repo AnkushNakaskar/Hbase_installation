@@ -24,6 +24,20 @@
       * http://hadoop-hbase.blogspot.com/2012/09/hbase-client-timeouts.html
     * Some Deep insides :
       * https://stackoverflow.com/questions/61856190/why-hbase-rows-are-said-to-be-stored-as-lexicographically-sorted
+      * https://stackoverflow.com/questions/22528859/hbase-scan-performance
     * checkAndPut() call: 
       * only update if another value is not already present. This is achieved by setting the value parameter to null. In that case, the operation would succeed when the specified column is nonexistent
-      * 
+  * GET Method :
+    * Both has a list of GET, List of PUT method , list of put can apply the valid one and return if invalid put is supplied with  error but at least valid put get applied.
+      * In case of list of GET, not a single record is return, entire GET of list is get failed.
+    * Sometime, we need to get the specified row or before that row if not present like in treeSet(Ceiling): ```getRowOrBefore(byte[] row, byte[] family)```
+    * Methods :
+      * boolean exists(Get get)
+      * Result[] get(List<Get> gets)
+      * List<KeyValue> getColumn(byte[] family, byte[] qualifier) 
+      * KeyValue getColumnLatest(byte[] family, byte[] qualifier) 
+      * boolean containsColumn(byte[] family, byte[] qualifier)
+      * byte[] getValue(byte[] family, byte[] qualifier) byte[] value()
+      *  byte[] getRow()
+      *  int size()
+      *  boolean isEmpty() KeyValue[] raw() List<KeyValue> list()
