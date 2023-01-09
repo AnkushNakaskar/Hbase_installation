@@ -38,6 +38,12 @@
       * KeyValue getColumnLatest(byte[] family, byte[] qualifier) 
       * boolean containsColumn(byte[] family, byte[] qualifier)
       * byte[] getValue(byte[] family, byte[] qualifier) byte[] value()
-      *  byte[] getRow()
-      *  int size()
-      *  boolean isEmpty() KeyValue[] raw() List<KeyValue> list()
+      * byte[] getRow()
+      * int size()
+      * boolean isEmpty() KeyValue[] raw() List<KeyValue> list()
+  * DELETE :
+    * List<Delete> : The API is free to reorder them to make efficient use of the single RPC per affected region server
+      * In order to make it sequential , you should use the separate delete call
+    * If you specify the timestamp in delete call, it will delete all the rows with matching and older version of row
+    * You can delete below on granular level :
+      * Row , Column family, Column , there are method specific to these.
