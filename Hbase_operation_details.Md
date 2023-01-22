@@ -47,3 +47,16 @@
     * If you specify the timestamp in delete call, it will delete all the rows with matching and older version of row
     * You can delete below on granular level :
       * Row , Column family, Column , there are method specific to these.
+  * Locking :
+    * You can lock any row by providing the rowKey in below method
+      * ```
+        RowLock lockRow(byte[] row) throws IOException 
+        void unlockRow(RowLock rl) throws IOException```
+    * By default , lock time for row is 1 min, you can specify the same in hbase server config
+  * SCAN :
+    * The method make use of underline sorted and structure data.
+    * You can specify the startOfRow and endOfRow, both of these are optional.
+    * You can specify the filter also in scan object.
+      * ResultScanner :
+        * It does not return all rows into one RPC call, it act like iterator
+      * Scan also hold the resources on server side if you dont close the scan instance explicitly, it will be close by server after sometime like rowLock has time.
