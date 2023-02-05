@@ -1,6 +1,7 @@
 * Hbase architecture in details :
   * Please ref the image ![](img/Hbase_architecture.png)
   * As image says : 
+    * Each region server can have multiple HRegion, even though image does not specify. 
     * ```The HRegionServer opens the region and creates a corresponding HRegion object. When the HRegion is opened it sets up a Store instance for each HColumnFamily for every table as defined by the user beforehand. Each Store instance can, in turn, have one or more StoreFile instances, which are lightweight wrappers around the actual storage file called HFile. A Store also has a MemStore, and the HRegionServer a shared HLog in- stance ```
     * When a store file within a region grows larger than the configured hbase.hregion.max.filesize—or what is configured at the column family level using HColumnDescriptor—the region is split in two
       * The region server accomplishes this by creating the splits directory in the parent region
@@ -15,3 +16,6 @@
     * Major :
       * major compactions compact all files into a single file 
       * Which compaction type is run is automatically determined when the compaction check is executed. The check is triggered either after a memstore has been flushed to disk
+  * WAL(Write ahead logs): 
+  * Please ref image : ![](img/Hbase_WAL.png)
+  * ```first the client initiates an action that modifies data. This can be, for example, a call to put(), delete(), and increment(). Each of these modifications is wrapped into a KeyValue object instance and sent over the wire using RPC calls. The calls are (ideally) batched to the HRegionServer that serves the matching regions. Once the KeyValue instances arrive, they are routed to the HRegion instances that are responsible for the given rows. The data is written to the WAL, and then put into the MemStore of the actual Store that holds the record. This is, in essence, the write path of HBase```
