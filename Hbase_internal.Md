@@ -11,4 +11,7 @@
       * ```The maximum number of files to include in a minor compaction is set to 10, and is configured with hbase.hstore.compaction.max. The list is further narrowed down by the hbase.hstore.compaction.min.size (set to the configured memstore flush size for the region), and the hbase.hstore.compaction.max.size (defaults to Long.MAX_VALUE) configuration properties. Any file larger than the maximum compaction size is always excluded. The minimum compaction size works slightly differently: it is a threshold rather than a per-file limit. It includes all files that are under that limit, up to the total number of files per compaction allowed```
       * ```hbase.hstore.compaction.ratio , hbase.hstore.compaction.max.size ,hbase.hstore.compaction.max ``` 
         * These properties are used to fine tune the number of store files, 
-          * based on file size, number of files, files are scan from old to new to be considered in minor compaction 
+          * based on file size, number of files, files are scan from old to new to be considered in minor compaction
+    * Major :
+      * major compactions compact all files into a single file 
+      * Which compaction type is run is automatically determined when the compaction check is executed. The check is triggered either after a memstore has been flushed to disk
