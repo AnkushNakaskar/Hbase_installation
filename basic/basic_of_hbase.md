@@ -10,10 +10,10 @@
     or HBase shell using key.
     ```
 * In HBase, there is a table called .META. (table name on file system), which keeps all information about regions that is referred by HMaster for information about the data. By default, HMaster runs on port number 60000 and its HTTP Web UI is available on port 60010, which can always be changed according to our need.
-    ![](img/Hbase_master_working.png)
+    ![](../img/Hbase_master_working.png)
 * Region Server :
   * RegionServers store the raw actual data. As you might guess, a RegionServer is run or is hosted on top of a DataNode(HDFS)
-  ![](img/RegionServer_in_detail.png)
+  ![](../img/RegionServer_in_detail.png)
   * Write-Ahead logs : 
     * When data is read/modified to HBase, it's not directly written in the disk rather it is kept in memory for some time
     * Keeping this data in memory may result in a loss of data if the machine goes down abruptly , data is first written in an intermediate file, which is called Write-Ahead logfile
