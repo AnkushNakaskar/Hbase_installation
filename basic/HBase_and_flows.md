@@ -3,7 +3,7 @@
   * HFile internally consists of HFile blocks that are its building blocks.
 * **Region :**
   * blocks of RegionServers that provide distribution, availability, and storage for columns and column families on an HBase cluster
-  ![](img/hirarchy_hbase_storage.png)
+  ![](../img/hirarchy_hbase_storage.png)
   * HDFS directory structure look like below 
     * /hbase
       * /table
@@ -16,7 +16,7 @@
 ### Scalability :
   * HBase scale out process, mean we can add more machine to scale the Hbase instead of scale up for more power machines
   * In HBase, we can always add a new Hadoop DataNode; on DataNodes, we can host many RegionServers for higher scalability
-   ![](img/new_machine_added_in_hbase_for_scale.png)
+   ![](../img/new_machine_added_in_hbase_for_scale.png)
   * Add new RegionServers on the fly; for this, new DataNodes are added, the RegionServer daemon is started on these DataNodes, and scalability is obtained
   * Hbase nodes(Region servers), talk to each other via **RPC** calls, which make it like a local system as a one.
   * HBaseRPC is the class that facilitates HBase to use RPC among the components.
@@ -28,7 +28,7 @@
   * Client applications talk to HMaster in order to dynamically create a table, add a column family, and for other operations.
   * HMaster communicates to RegionServers to open, close, move, split, or flush the region
 * Active HMaster data and the root RegionServer location are cached into ZooKeepers by HMaster
-   ![](img/write_flow_in_hbase_WAL.png)
+   ![](../img/write_flow_in_hbase_WAL.png)
   * Client does not write data directly to HFiles
     * IT first write to WAL , then to MemStore, and MemStore is flush to HFile.
   * WAL(Write ahead logs)
