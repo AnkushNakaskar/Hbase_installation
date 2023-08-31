@@ -29,3 +29,4 @@ This project explain the Hbase installation and details
   * https://stackoverflow.com/questions/47688117/hbase-when-particular-region-server-fails-read-the-data-from-the-replicated-clu
   * https://stackoverflow.com/questions/11658328/when-does-hbase-actually-delete-a-row
   * https://www.syncfusion.com/succinctly-free-ebooks/hbase/inside-the-region-server#:~:text=The%20BlockCache%20is%20a%20read,contains%20the%20data%20on%20disk.
+  * https://stackoverflow.com/questions/22732179/hbase-and-hfiles-how-does-it-store-the-columns-family
